@@ -11,6 +11,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: crate build directory
       run: mkdir -p build && cd build
+    - name: show directory
+      run: pwd && ls ..
     - name: cmake
       run: cmake ..
     - name: make
