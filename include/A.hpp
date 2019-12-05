@@ -11,7 +11,7 @@
 class A
 {
 public:
-    std::size_t Get() const { return 5; }
+    std::size_t Get() const { return 4; }
 };
 
 #endif // A_HPP

@@ -9,17 +9,12 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: add unsupported packages for gcc-8 and g++-8 installation
-      run: sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test && sudo apt update
-    - name: install gcc-8 and g++-8
-      run: sudo apt-get install gcc-8 g++-8
-    - name: update gcc and g++ symlinks
-      run: sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 60 && sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 60
-    - name: get gtest
-      run: sudo apt-get install googletest 
-    - name: install gtest 
-      working-directory: /usr/src/googletest
-      run: sudo cmake . && sudo cmake --build . --target install
+    - name: install gcc-8
+      working-directory: ./CI/github
+      run: ./install_gcc8.sh
+    - name: install google test suite
+      working-directory: ./CI/github
+      run: ./install_googletest.sh
     - name: create build directory
       run: mkdir -p build
     - name: build
