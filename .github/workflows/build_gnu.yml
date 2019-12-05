@@ -11,12 +11,12 @@ jobs:
     - uses: actions/checkout@v1
     - name: install gcc-8
       working-directory: ./CI/github
-      run: ls && chmod +x ./install_googletest.sh && sudo ./install_gcc8.sh
       shell: bash
+      run: chmod +x ./install_gcc8.sh && ./install_gcc8.sh
     - name: install google test suite
       working-directory: ./CI/github
-      run: chmod +x ./install_googletest.sh && sudo ./install_googletest.sh
       shell: bash
+      run: chmod +x ./install_googletest.sh && ./install_googletest.sh
     - name: create build directory
       run: mkdir -p build
     - name: build
