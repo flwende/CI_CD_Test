@@ -5,10 +5,12 @@ on: [push]
 jobs:
   build:
 
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v1
+    - name: check g++
+      run: apt-cache search g++
     - name: get gtest
       run: sudo apt-get install googletest 
     - name: install gtest 
