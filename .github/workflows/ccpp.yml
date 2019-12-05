@@ -10,10 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: crate build directory
-      run: mkdir -p build && cd build
-    - name: show directory
-      run: pwd && ls ..
-    - name: cmake
-      run: cmake ..
-    - name: make
-      run: make
+      run: mkdir -p build
+    - name: build
+      run: cd build && cmake .. && make
