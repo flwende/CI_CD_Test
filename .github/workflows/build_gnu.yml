@@ -9,9 +9,13 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: install gtest
-      run: sudo apt-get install googletest && cd /usr/src/googletest && sudo cmake . && sudo cmake --build . --target install
+    - name: get gtest
+      run: sudo apt-get install googletest 
+    - name: install gtest 
+      working-directory: /usr/src/googletest
+      run: sudo cmake . && sudo cmake --build . --target install
     - name: create build directory
       run: mkdir -p build
     - name: build
-      run: cd build && cmake .. && make
+      working-directory: ./build
+      run: cmake .. && make
