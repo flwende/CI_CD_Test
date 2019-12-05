@@ -9,7 +9,12 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: crate build directory
+    - name: install gtest
+      run: sudo apt-get install googletest
+      run: cd /usr/src/googletest
+      run: sudo cmake .
+      run: sudo cmake --build . --target install
+    - name: create build directory
       run: mkdir -p build
     - name: build
       run: cd build && cmake .. && make
